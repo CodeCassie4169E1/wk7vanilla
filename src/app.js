@@ -35,6 +35,7 @@ function displayTemp(response) {
   let dateElement = document.querySelector("#date");
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   let iconElement = document.querySelector("#icon");
+
   iconElement.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -44,7 +45,7 @@ function displayTemp(response) {
 
 function search(city) {
   let apiKey = "9ee44dd39b241c853f96295c78bd71cb";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
   axios.get(apiUrl).then(displayTemp);
 }
@@ -57,3 +58,14 @@ function handleSubmit(event) {
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+var celsiusLink = document.getElementById("celsius-link");
+
+celsiusLink.addEventListener("click", function (event) {
+  event.preventDefault();
+  var temperatureElement = document.getElementById("temperature");
+  var fahrenheit = parseFloat(temperatureElement.textContent);
+  var celsius = Math.round(((fahrenheit - 32) * 5) / 9);
+  temperatureElement.textContent = celsius;
+  celsiusLink.textContent = "°C";
+});
