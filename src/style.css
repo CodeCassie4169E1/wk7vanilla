@@ -1,4 +1,5 @@
 li {
+  text-transform: capitalize;
   color: #878787;
   list-style: none;
 }
