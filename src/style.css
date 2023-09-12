@@ -1,7 +1,9 @@
 li {
-  text-transform: capitalize;
   color: #878787;
   list-style: none;
+}
+li:first-letter {
+  text-transform: capitalize;
 }
 ul {
   margin: 0;
