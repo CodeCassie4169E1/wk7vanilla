@@ -113,14 +113,3 @@ function handleSubmit(event) {
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-var celsiusLink = document.getElementById("celsius-link");
-
-celsiusLink.addEventListener("click", function (event) {
-  event.preventDefault();
-  var temperatureElement = document.getElementById("temperature");
-  var fahrenheit = parseFloat(temperatureElement.textContent);
-  var celsius = Math.round(((fahrenheit - 32) * 5) / 9);
-  temperatureElement.textContent = celsius;
-  celsiusLink.textContent = "°C";
-});
